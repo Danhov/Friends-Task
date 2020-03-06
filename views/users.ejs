@@ -26,18 +26,27 @@
           <div class="friend-status col-md-4 align-self-center text-center">
             <% if(user.friends.some(e => e.email === element.email)) { %>
               <span>friends</span>
-            <% } else if(user.friendRequests.outgoing.some(e => e.email === element.email)) {%>
+            <% } else if(user.friendRequests.outgoing.some(e => e.email === element.email)
+                        || user.friendRequests.incoming.some(e => e.email === element.email)) { %>
               <span>pending request</span>
             <% } else { %>
               <form action="/users/add_friend" method="POST">
-                <button type="submit" name="addFriendButton" class="btn btn-secondary btn-lg addFriendButton"  value='<%= element.email %>'>Add Friend</button>
+                <button type="submit" name="addFriendButton" class="btn btn-secondary btn-lg addFriendButton"  value='<%= JSON.stringify(element) %>'>Add Friend</button>
               </form>
             <% } %>
           </div>
           <div class="col-md-4 align-self-center text-center">
-            <form action="/users/remove_friend" method="post">
-              <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Remove Friend</button>
-            </form>
+            <% if(user.friends.some(e => e.email === element.email)) { %>
+              <form action="/users/remove_friend" method="post">
+                <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Remove Friend</button>
+              </form>
+            <% } else if(user.friendRequests.outgoing.some(e => e.email === element.email)) {%>
+              <form action="" method="post">
+                <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Cancel request</button>
+              </form>
+            <% } else { %>
+                <div></div>
+            <% } %>
           </div>
         </div>
     <% }) %>
@@ -45,6 +54,7 @@
     </div>
     <div class="text-center">
       <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
+      <a href="/friends" class="btn btn-secondary logout">Friends</a>
     </div>
 </section>
 

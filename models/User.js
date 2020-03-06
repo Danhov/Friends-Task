@@ -19,18 +19,11 @@ const UserSchema = new mongoose.Schema({
 		default : Date.now
 	},
 	friends        : {
-		type    : Array,
-		default : {}
+		type : Array
 	},
 	friendRequests : {
-		incoming : {
-			type    : Array,
-			default : {}
-		},
-		outgoing : {
-			type    : Array,
-			default : {}
-		}
+		incoming : [ {} ],
+		outgoing : [ {} ]
 	}
 });
 

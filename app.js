@@ -15,9 +15,18 @@ const User = require('./models/User');
 User.findOne({}, function(err, user) {
 	const defaultUsers = [
 		{
-			name     : 'John Doe',
-			email    : 'john@mail.com',
-			password : 'johnpass'
+			name           : 'John Doe',
+			email          : 'john@mail.com',
+			password       : 'johnpass',
+			friendRequests : {
+				outgoing : [],
+				incoming : [
+					{
+						name  : 'Jack Sparrow',
+						email : 'jack@mail.com'
+					}
+				]
+			}
 		},
 		{
 			name     : 'Jane Smith',
@@ -76,6 +85,7 @@ app.use(function(req, res, next) {
 // Defining routes
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
+app.use('/friends', require('./routes/friendRequests.js'));
 
 const PORT = process.env.PORT || 5000;
 
