@@ -10,8 +10,6 @@ router.get('/', forwardAuthenticated, (req, res) => res.render('login'));
 //All users list
 router.get('/users', ensureAuthenticated, (req, res) => {
 	User.find({ name: { $ne: req.user.name } }, { password: 0 }, function(err, users) {
-		console.log(users);
-
 		res.render('users', {
 			user        : req.user,
 			usersOnSite : users
@@ -44,9 +42,19 @@ router.post('/users', ensureAuthenticated, (req, res) => {
 
 //Add friend request
 router.post('/users/add_friend', ensureAuthenticated, (req, res) => {
+	const userToAdd = JSON.parse(req.body.addFriendButton);
 	User.updateOne(
 		{ email: req.user.email },
-		{ $addToSet: { friends: [ { email: req.body.addFriendButton } ] } },
+		{
+			$addToSet : {
+				friends : [
+					{
+						email : userToAdd.email,
+						name  : userToAdd.name
+					}
+				]
+			}
+		},
 		function(err, result) {
 			if (err) {
 				console.log(err);

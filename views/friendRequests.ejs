@@ -1,0 +1,47 @@
+<link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+<section>
+    <div >
+         <h1>Pending Requests</h1> 
+    </div>
+    
+    <div>
+      <h2>Incoming</h2>
+    </div>
+
+    
+    <div>
+      <h2>Outgoing</h2>
+    </div>
+
+    <div>
+      <h1>Friends</h1>
+      <div class="container">
+        <% currentUser.friends.forEach(function(element){ %>
+          <div class="row userList-entry">
+            <div class="col col-md-4" >
+              <img class="user-image" src="/imgs/default-avatar.png" alt="Card image cap">
+              <p id="username"><%= element.name %></p>
+            </div>
+            <div class="friend-status col-md-4 align-self-center text-center">
+                <span>friends</span>
+            </div>
+            <div class="col-md-4 align-self-center text-center">
+              <form action="/friends/remove_friend" method="post">
+                <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Remove Friend</button>
+              </form>
+            </div>
+          </div>
+      <% }) %>
+      </div>
+    </div>
+
+
+    
+    <div class="text-center">
+      <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
+      <a href="/users" class="btn btn-secondary logout">Search</a>
+    </div>
+</section>
+
+<script src="/frontjs/usersList.js"></script>
