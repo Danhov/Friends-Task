@@ -9,29 +9,6 @@ router.get('/', ensureAuthenticated, (req, res) => {
 	res.render('friendRequests', { currentUser: req.user });
 });
 
-// //Search friend request
-// router.post('/users', ensureAuthenticated, (req, res) => {
-// 	User.find(
-// 		{
-// 			$and : [
-// 				{ name: new RegExp('\\b' + req.body.search.trim() + '\\w+\\b', 'i') },
-// 				{ name: { $ne: req.user.name } }
-// 			]
-// 		},
-// 		(err, foundUsers) => {
-// 			if (err) {
-// 				console.log(err);
-// 				res.redirect('users');
-// 			}
-// 			if (!foundUsers) res.redirect('users');
-// 			res.render('users', {
-// 				user        : req.user,
-// 				usersOnSite : foundUsers
-// 			});
-// 		}
-// 	);
-// });
-
 //Add friend request
 router.post('/accept', ensureAuthenticated, (req, res) => {
 	const userToAccept = JSON.parse(req.body.addFriendButton);
