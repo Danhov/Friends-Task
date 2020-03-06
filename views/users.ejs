@@ -1,0 +1,51 @@
+<link href="/css/styles.css" rel="stylesheet" type="text/css">
+
+<section>
+    <div class="header sticky-top" style="background-color: #b9cced; 
+                                          border-bottom-left-radius: 25%;
+                                          border-bottom-right-radius: 25%;">
+          <form class="d-inline " action="/users" method="POST">
+            <div class="input-group">
+               <input type="search" name="search" class="form-control" placeholder="Search...">
+                <span class="input-group-append">
+                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </span>
+             </div>
+         </form>  
+        
+    </div>
+    <h1>Welcome <%= user.name %></h1>
+    <div class="container ">
+
+      <% usersOnSite.forEach(function(element){ %>
+        <div class="row userList-entry">
+          <div class="col col-md-4" >
+            <img class="user-image" src="/imgs/default-avatar.png" alt="Card image cap">
+            <p id="username"><%= element.name %></p>
+          </div>
+          <div class="friend-status col-md-4 align-self-center text-center">
+            <% if(user.friends.some(e => e.email === element.email)) { %>
+              <span>friends</span>
+            <% } else if(user.friendRequests.outgoing.some(e => e.email === element.email)) {%>
+              <span>pending request</span>
+            <% } else { %>
+              <form action="/users/add_friend" method="POST">
+                <button type="submit" name="addFriendButton" class="btn btn-secondary btn-lg addFriendButton"  value='<%= element.email %>'>Add Friend</button>
+              </form>
+            <% } %>
+          </div>
+          <div class="col-md-4 align-self-center text-center">
+            <form action="/users/remove_friend" method="post">
+              <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Remove Friend</button>
+            </form>
+          </div>
+        </div>
+    <% }) %>
+        
+    </div>
+    <div class="text-center">
+      <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
+    </div>
+</section>
+
+<script src="/frontjs/usersList.js"></script>

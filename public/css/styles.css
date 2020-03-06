@@ -1,0 +1,61 @@
+body {
+	background-color: #fbf4f9;
+}
+section {
+	margin: 0;
+	background-color: #f6e7e6;
+}
+
+section div form {
+	margin: 3rem;
+}
+
+section p {
+	text-align: center;
+	font-weight: bold;
+}
+
+h1 {
+	text-align: center;
+}
+
+.userList-entry div {
+	display: inline-block;
+	text-align: center;
+}
+
+.user-image {
+	height: 10rem;
+	width: 10rem;
+	border-radius: 50%;
+	float: left;
+	margin-bottom: 2.5rem;
+}
+
+.row.card-section {
+	margin-bottom: 5rem;
+	margin-left: 2rem;
+	margin-right: 2rem;
+	background-color: #a6b1e1;
+}
+
+.card-section div {
+	display: inline-block;
+}
+
+.card {
+	background-color: #f3f3f3;
+	text-align: center;
+}
+
+div.friend-status button {
+	text-align: center;
+}
+
+.logout {
+	margin-bottom: 2.5%;
+}
+
+#username {
+	padding-top: 25%;
+}

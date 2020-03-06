@@ -1,0 +1,115 @@
+{
+	"_id": {
+		"$oid": "5e62414bff14fc2cd8572dc4"
+	},
+	"friendRequests": {
+		"incoming": [
+			{}
+		],
+		"outgoing": [
+			{}
+		]
+	},
+	"friends": [
+		{}
+	],
+	"name": "John Doe",
+	"email": "john@mail.com",
+	"password": "johnpass",
+	"date": {
+		"$date": "2020-03-06T12:25:47.484Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e62414bff14fc2cd8572dc5"
+	},
+	"friendRequests": {
+		"incoming": [
+			{}
+		],
+		"outgoing": [
+			{}
+		]
+	},
+	"friends": [
+		{}
+	],
+	"name": "Jane Smith",
+	"email": "jane@mail.com",
+	"password": "janepass",
+	"date": {
+		"$date": "2020-03-06T12:25:47.484Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e62414bff14fc2cd8572dc6"
+	},
+	"friendRequests": {
+		"incoming": [
+			{}
+		],
+		"outgoing": [
+			{}
+		]
+	},
+	"friends": [
+		{}
+	],
+	"name": "Jack Sparrow",
+	"email": "jack@mail.com",
+	"password": "balckpearl",
+	"date": {
+		"$date": "2020-03-06T12:25:47.484Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e62414bff14fc2cd8572dc7"
+	},
+	"friendRequests": {
+		"incoming": [
+			{}
+		],
+		"outgoing": [
+			{}
+		]
+	},
+	"friends": [
+		{}
+	],
+	"name": "Robert Eriksson",
+	"email": "robert@mail.com",
+	"password": "robertpass",
+	"date": {
+		"$date": "2020-03-06T12:25:47.485Z"
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e62414bff14fc2cd8572dc8"
+	},
+	"friendRequests": {
+		"incoming": [
+			{}
+		],
+		"outgoing": [
+			{}
+		]
+	},
+	"friends": [
+		{}
+	],
+	"name": "Helen Jones",
+	"email": "helen@mail.com",
+	"password": "helenpass",
+	"date": {
+		"$date": "2020-03-06T12:25:47.485Z"
+	},
+	"__v": 0
+}
