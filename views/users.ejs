@@ -41,20 +41,26 @@
                 <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Remove Friend</button>
               </form>
             <% } else if(user.friendRequests.outgoing.some(e => e.email === element.email)) {%>
-              <form action="" method="post">
-                <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Cancel request</button>
+              <form action="/users/cancel" method="post">
+                <button type="submit" name="cancelFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Cancel request</button>
+              </form>
+            <% } else if(user.friendRequests.incoming.some(e => e.email === element.email)) {%>
+              <form action="/users/ignore" method="post">
+                <button type="submit" name="ignoreFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Ignore</button>
               </form>
             <% } else { %>
                 <div></div>
             <% } %>
           </div>
         </div>
+        <hr>
     <% }) %>
         
     </div>
+
     <div class="text-center">
-      <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
       <a href="/friends" class="btn btn-secondary logout">Friends</a>
+      <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
     </div>
 </section>
 

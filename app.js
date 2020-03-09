@@ -12,6 +12,8 @@ require('./config/passport')(passport);
 // Establishing connection to MongoDB database and inserting default documents if empty
 mongoose.connect('mongodb://localhost:27017/users', { useNewUrlParser: true });
 const User = require('./models/User');
+
+//Insert default users if db is empty
 User.findOne({}, function(err, user) {
 	const defaultUsers = [
 		{
@@ -34,9 +36,18 @@ User.findOne({}, function(err, user) {
 			password : 'janepass'
 		},
 		{
-			name     : 'Jack Sparrow',
-			email    : 'jack@mail.com',
-			password : 'balckpearl'
+			name           : 'Jack Sparrow',
+			email          : 'jack@mail.com',
+			password       : 'balckpearl',
+			friendRequests : {
+				outgoing : [
+					{
+						name  : 'John Doe',
+						email : 'john@mail.com'
+					}
+				],
+				incoming : []
+			}
 		},
 		{
 			name     : 'Robert Eriksson',
@@ -50,9 +61,9 @@ User.findOne({}, function(err, user) {
 		}
 	];
 
-	User.deleteMany({}, function() {});
-
-	User.insertMany(defaultUsers);
+	if (!user) {
+		User.insertMany(defaultUsers);
+	}
 });
 
 app.use(express.urlencoded({ extended: true }));
@@ -89,4 +100,4 @@ app.use('/friends', require('./routes/friendRequests.js'));
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.listen(PORT, console.log(`Server is up and running on port ${PORT}`));

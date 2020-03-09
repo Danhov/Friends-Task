@@ -1,115 +1,85 @@
 {
 	"_id": {
-		"$oid": "5e62414bff14fc2cd8572dc4"
+		"$oid": "5e66484291ce69140c5fcfef"
 	},
 	"friendRequests": {
-		"incoming": [
-			{}
-		],
-		"outgoing": [
-			{}
-		]
+		"incoming": [],
+		"outgoing": []
 	},
-	"friends": [
-		{}
-	],
+	"friends": [],
 	"name": "John Doe",
 	"email": "john@mail.com",
 	"password": "johnpass",
 	"date": {
-		"$date": "2020-03-06T12:25:47.484Z"
+		"$date": "2020-03-09T13:44:34.857Z"
 	},
 	"__v": 0
 }
 {
 	"_id": {
-		"$oid": "5e62414bff14fc2cd8572dc5"
+		"$oid": "5e66484291ce69140c5fcff0"
 	},
 	"friendRequests": {
-		"incoming": [
-			{}
-		],
-		"outgoing": [
-			{}
-		]
+		"incoming": [],
+		"outgoing": []
 	},
-	"friends": [
-		{}
-	],
+	"friends": [],
 	"name": "Jane Smith",
 	"email": "jane@mail.com",
 	"password": "janepass",
 	"date": {
-		"$date": "2020-03-06T12:25:47.484Z"
+		"$date": "2020-03-09T13:44:34.857Z"
 	},
 	"__v": 0
 }
 {
 	"_id": {
-		"$oid": "5e62414bff14fc2cd8572dc6"
+		"$oid": "5e66484291ce69140c5fcff1"
 	},
 	"friendRequests": {
-		"incoming": [
-			{}
-		],
-		"outgoing": [
-			{}
-		]
+		"incoming": [],
+		"outgoing": []
 	},
-	"friends": [
-		{}
-	],
+	"friends": [],
 	"name": "Jack Sparrow",
 	"email": "jack@mail.com",
 	"password": "balckpearl",
 	"date": {
-		"$date": "2020-03-06T12:25:47.484Z"
+		"$date": "2020-03-09T13:44:34.858Z"
 	},
 	"__v": 0
 }
 {
 	"_id": {
-		"$oid": "5e62414bff14fc2cd8572dc7"
+		"$oid": "5e66484291ce69140c5fcff2"
 	},
 	"friendRequests": {
-		"incoming": [
-			{}
-		],
-		"outgoing": [
-			{}
-		]
+		"incoming": [],
+		"outgoing": []
 	},
-	"friends": [
-		{}
-	],
+	"friends": [],
 	"name": "Robert Eriksson",
 	"email": "robert@mail.com",
 	"password": "robertpass",
 	"date": {
-		"$date": "2020-03-06T12:25:47.485Z"
+		"$date": "2020-03-09T13:44:34.858Z"
 	},
 	"__v": 0
 }
 {
 	"_id": {
-		"$oid": "5e62414bff14fc2cd8572dc8"
+		"$oid": "5e66484291ce69140c5fcff3"
 	},
 	"friendRequests": {
-		"incoming": [
-			{}
-		],
-		"outgoing": [
-			{}
-		]
+		"incoming": [],
+		"outgoing": []
 	},
-	"friends": [
-		{}
-	],
+	"friends": [],
 	"name": "Helen Jones",
 	"email": "helen@mail.com",
 	"password": "helenpass",
 	"date": {
-		"$date": "2020-03-06T12:25:47.485Z"
+		"$date": "2020-03-09T13:44:34.859Z"
 	},
 	"__v": 0
 }

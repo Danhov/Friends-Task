@@ -29,6 +29,7 @@
       </div>
     </div>
 
+    <hr>
     
     <div>
       <h2>Outgoing</h2>
@@ -43,14 +44,17 @@
                 <span>Pending request</span>
             </div>
             <div class="col-md-4 align-self-center text-center">
-              <form action="/" method="post">
-                <button type="submit" name="removeFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Cancel request</button>
+              <form action="/friends/cancel" method="post">
+                <button type="submit" name="cancelFriendButton" class="btn btn-secondary btn-lg removeFriendButton" value='<%= element.email %>'>Cancel request</button>
               </form>
             </div>
           </div>
+
       <% }) %>
       </div>
     </div>
+
+    <hr>
 
     <div>
       <h1>Friends</h1>
@@ -74,11 +78,11 @@
       </div>
     </div>
 
-
+    <hr>
     
     <div class="text-center">
-      <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
       <a href="/users" class="btn btn-secondary logout">Search</a>
+      <a href="/users/logout" class="btn btn-secondary logout">Logout</a>
     </div>
 </section>
 

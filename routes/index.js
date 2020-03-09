@@ -15,6 +15,8 @@ router.get('/users', ensureAuthenticated, (req, res) => {
 			usersOnSite : users
 		});
 	});
+
+	console.log(req);
 });
 
 //Search friend request
@@ -86,43 +88,73 @@ router.post('/users/add_friend', ensureAuthenticated, async (req, res) => {
 			}
 		}
 	);
-	/* const user = await User.findById(req.user.id);
-	console.log(user);
-	user.friendRequests.outgoing.push({
-		_id   : userToAdd._id,
-		name  : userToAdd.name,
-		email : userToAdd.email
-	});
-	await user.save();
-	//make unique push
-	userToAdd = await User.findById(userToAdd._id);
-	userToAdd.friendRequests.incoming.push({ _id: user._id, name: user.name, email: user.email });
-	await userToAdd.save();
-
-	res.redirect('../users'); */
 });
 
-/* User.updateOne(
-	{ email: req.user.email },
-	{
-		$addToSet : {
-			friends : [
-				{
-					email : userToAdd.email,
-					name  : userToAdd.name
-				}
-			]
+//Ignore incoming friend request
+router.post('/users/ignore', ensureAuthenticated, (req, res) => {
+	User.updateOne(
+		{ email: req.user.email },
+		{
+			$pull : {
+				'friendRequests.incoming' : { email: req.body.ignoreFriendButton }
+			}
+		},
+		function(err, raw) {
+			if (err) {
+				console.log(err);
+			}
 		}
-	},
-	function(err, result) {
-		if (err) {
-			console.log(err);
+	);
+	User.updateOne(
+		{ email: req.body.ignoreFriendButton },
+		{
+			$pull : {
+				'friendRequests.outgoing' : { email: req.user.email }
+			}
+		},
+		function(err, raw) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				res.redirect('../users');
+			}
 		}
-		else {
-			res.redirect('../users');
+	);
+});
+
+//Cancel outgoing friend request
+router.post('/users/cancel', ensureAuthenticated, (req, res) => {
+	User.updateOne(
+		{ email: req.user.email },
+		{
+			$pull : {
+				'friendRequests.outgoing' : { email: req.body.cancelFriendButton }
+			}
+		},
+		function(err, raw) {
+			if (err) {
+				console.log(err);
+			}
 		}
-	}
-); */
+	);
+	User.updateOne(
+		{ email: req.body.cancelFriendButton },
+		{
+			$pull : {
+				'friendRequests.incoming' : { email: req.user.email }
+			}
+		},
+		function(err, raw) {
+			if (err) {
+				console.log(err);
+			}
+			else {
+				res.redirect('../users');
+			}
+		}
+	);
+});
 
 //Remove friend
 router.post('/users/remove_friend', ensureAuthenticated, (req, res) => {
